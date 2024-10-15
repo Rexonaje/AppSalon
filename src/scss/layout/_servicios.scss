@@ -1,0 +1,26 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+.listado-servicios{
+    display: grid;
+    gap: 2rem;
+    .servicio{
+        transition: transform 300ms;
+        background-color: v.$blanco;
+        padding: 1rem;
+        border-radius: .5rem;
+        .nombre-servicio{color: v.$negro; text-align: center;}
+        .precio-servicio{
+            color: v.$azul;
+            font-weight: v.$bold;
+            font-size: 3rem;
+            margin:0;
+        }
+        &:hover{
+            transform: scale(1.1);
+           
+        }
+    }
+    @include m.tablet{
+        @include m.grid(2,2rem);
+    } 
+} 

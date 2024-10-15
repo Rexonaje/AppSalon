@@ -42,12 +42,17 @@ class Usuario extends ActiveRecord{
         if(!$this->password){
             self::$alertas['error'][]='Password invalido';
         }
-        if(strlen($this->password)< 6){//strlen retorna el ancho del string
-            self::$alertas['error'][]='Password debe tener minimo 6 caracteres';
-        }
-        if(!ctype_upper($this->password[0])){
-            self::$alertas['error'][]='Password debe comenzar con mayuscula';
-        }
+            if(!$this->password){
+                self::$alertas['error'][]='Password es Obligatorio';
+            }
+            if(strlen($this->password)< 6){//strlen retorna el ancho del string
+                self::$alertas['error'][]='Password debe tener minimo 6 caracteres';
+            }
+            if(!empty($this->password)){//comprueba que password no este vacio 
+             if(!ctype_upper($this->password[0])){
+                self::$alertas['error'][]='Password debe comenzar con mayuscula';
+                }
+            }
          
         return self::$alertas;
     }

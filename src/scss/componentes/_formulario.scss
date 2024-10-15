@@ -1,5 +1,5 @@
-@use 'base/mixins'as m;
-@use 'base/variables'as v;
+@use '../base/mixins'as m;
+@use '../base/variables'as v;
 
 .formulario{
     width: 100%;
@@ -16,6 +16,12 @@
         border: none;
         padding: calc(v.$separacion /4);
         border-radius: 5rem;
+        &:disabled{
+            background-color: v.$negro;
+            color: v.$blanco;
+            border: .5rem solid v.$blanco;
+            cursor: not-allowed;
+        }
     }
     
 }
